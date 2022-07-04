@@ -122,15 +122,18 @@ print("Baglandi.")
 pidx = PID(Kpx, Kix, Kdx, setpointx)
 pidy = PID(Kpy, Kiy, Kdy, setpointy)
 
+pidx.sample_time = 0.02
+pidy.sample_time = 0.02
+
 # Raspberry'nin kendi bluetooth'u üzerinden Arduino'daki HC-05 modulu uzerine veri gonderilmesi
 def comm():
-    global sock, ball_pos_x_c, ball_pos_y_c
-    while True:
+	global sock, ball_pos_x_c, ball_pos_y_c
+	while True:
 		# Her yarim saniyede bir x ve y pozisyonlarini tek seferde arasinda 'x' karakteri ile gonderiyor
 		# ve arduino kodunda buna gore ayristirilip ekrana basiliyor.
-        sock.send(ball_pos_x_c.__str__() + "x" + ball_pos_y_c.__str__())
+		sock.send(ball_pos_x_c.__str__() + "x" + ball_pos_y_c.__str__())
 		# Ayri thread'de calistigi icin ana fonksiyonda gecikme olusturmuyor.
-        time.sleep(0.5)
+		time.sleep(0.5)
 
 # Degerleri belli bir aralikta hizalamak icin kullanilan yardimci fonksiyon
 def map_value(x, in_min, in_max, out_min, out_max):
@@ -243,6 +246,11 @@ def main_while():
 		
 		# frame'i goster
 		cv2.imshow("Frame", frame)
+		
+		# q tusuna basilirsa cik
+		key = cv2.waitKey(1) & 0xFF
+		if key == ord('q'):
+			break
 
 		# Eger top pozisyonlari yoksa yani platformun uzerinde top yoksa platformu duzeltmek icin degerleri orta noktaya cek
 		if ball_pos_x == None: 
@@ -287,6 +295,12 @@ t3 = Thread(target=comm)
 t1.start()
 t2.start()
 t3.start()
+
+# En son videoyu durdur
+if not args.get("video", False):
+	vs.stop()
+else:
+	vs.release()
 
 # goruntuleri kapat
 cv2.destroyAllWindows()
