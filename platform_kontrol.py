@@ -124,6 +124,7 @@ print("Baglandi.")
 pidx = PID(Kpx, Kix, Kdx, setpointx)
 pidy = PID(Kpy, Kiy, Kdy, setpointy)
 
+# PID icin ornekleme zamani, 50 Hz yani 0.02 s, bunu kameranin hizina gore ayarlamak gerekiyor
 pidx.sample_time = 0.02
 pidy.sample_time = 0.02
 
