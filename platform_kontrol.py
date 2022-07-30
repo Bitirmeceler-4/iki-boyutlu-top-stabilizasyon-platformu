@@ -320,13 +320,13 @@ if not args.get("video", False):
 else:
 	vs.release()
 
-# goruntuleri kapat
+# Goruntuleri kapat
 cv2.destroyAllWindows()
 
-# servolari kapat
+# Servolari kapat
 servo1.stop()
 servo2.stop()
 GPIO.cleanup()
 
-# bluetoothu kapat
+# Bluetoothu kapat
 sock.close()
