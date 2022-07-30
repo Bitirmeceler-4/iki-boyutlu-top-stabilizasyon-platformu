@@ -1,6 +1,6 @@
 # iki-boyutlu-top-stabilizasyon-platformu
 
-https://youtu.be/MGVfIc5Vz14
+Final Sunumu ve Demo: https://youtu.be/MGVfIc5Vz14
 
 ![demo1](demo1.gif)
 
