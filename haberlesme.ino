@@ -1,4 +1,6 @@
-// ELE 495 Bitirme Projesi
+// TOBB ETU Elektrik-Elektronik Muhendisligi
+// 2021-2022 Yaz Donemi
+// ELE 495 Bitirme Projesi - Iki Boyutlu Top Stabilizasyon Platformu
 // Grup 4
 // Haberleşme Tarafı Bluetooth ve LCD Ekran Kodu
 // Arduino Uno
