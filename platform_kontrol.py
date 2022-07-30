@@ -157,6 +157,18 @@ def get_user_input(user_input_ref):
 	global user_input
 	get_user_input(user_input)
 
+# PID yaparken topa 100mm yaricapli cember yolunu cizdirebilen fonksiyon
+# Topun tutulma noktasi surekli degistirilerek yapiliyor
+# Ekstra ozellik olarak ekledik
+import math
+k = 0
+def make_circle_path():
+	global pidx, pidy, k
+	pidx.setpoint = 100*math.cos(k)
+	pidy.setpoint = 100*math.sin(k)
+	k = k+0.02
+	if(k==360): k = 0
+
 # PID kontrolu saglayan fonksiyon
 def do_PID(ball_pos_x, ball_pos_y):
 	global pidx, pidy
@@ -173,6 +185,9 @@ def do_PID(ball_pos_x, ball_pos_y):
 	set_degree(servo1, constrain(90+PIDx_result, 0, 180))
 	# servo2 ters oldugundan eksili
 	set_degree(servo2, constrain(90-PIDy_result, 0, 180))
+	
+	# Topa cember cizdirmek icin PID yaparken burada make_circle_path() fonksiyonu acilmali
+	#make_circle_path()
 
 # Surekli calisip goruntu isleyecek ve buna bagli PID kontrol yapacak ana fonksiyon
 def main_while():
