@@ -1,6 +1,8 @@
-# ELE 495 Bitirme Projesi
+# TOBB ETU Elektrik-Elektronik Muhendisligi
+# 2021-2022 Yaz Donemi
+# ELE 495 Bitirme Projesi - Iki Boyutlu Top Stabilizasyon Platformu
 # Grup 4
-# Platform Tarafı Görüntü İşleme ve Kontrol Kodu
+# Platform Tarafi Goruntu Isleme, Kontrol ve Haberlesme Kodu
 # Raspberry Pi 4
 
 # Kontrol kodu ve Bluetooth verileri gonderen kodun ayri thread'lerde calismasini saglayan kutuphane
